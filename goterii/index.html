@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Feliz Cumpleaños! 🎉</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Efecto de confeti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- PANTALLA 1: BIENVENIDA -->
+  <div id="welcome-screen" class="screen">
+    <div class="welcome-card">
+      <span class="badge">MENSAJE ESPECIAL ✉️</span>
+      <h1>¡Hola goterii! 👀</h1>
+      <p>Te preparé un pequeño detalle por tu cumple. ¿Deseas verlo?</p>
+      
+      <div class="btn-group">
+        <button id="yes-btn" onclick="openGift()">¡Sí, claro! ✅</button>
+        <button id="no-btn" onmouseover="dodgeAndShrink()" onclick="dodgeAndShrink()">No quiero nada ❌</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANTALLA 2: CONTENIDO PRINCIPAL -->
+  <div id="main-screen" class="screen hidden">
+    <div class="main-container">
+      <h1>생일 축하해! 🎂</h1>
+      <p class="subtitle">¡Feliz Cumpleaños!</p>
+
+      <div class="letter-box">
+        <p>
+          ¡Hola! Espero que hoy te la pases súper bien, que comas mucho pastel (y danonino plis). 
+          !=la verdad me caes super mal y te odio. ¡Te aprecio un monton! 
+        </p>
+      </div>
+
+      <p class="instruction">👇 <i>Haz clic en cada imagen para ver qué tienen que decirte:</i></p>
+
+      <!-- GALERÍA (3 IMÁGENES: 2 arriba, 1 en el centro abajo) -->
+      <div class="grid-gallery">
+        <div class="card" onclick="openModal('Los Chicos de banda tierra sagrada te felicitan en tu dia especial enana!')">
+          <img src="bts.jpg" alt="BTS">
+          <p>vts</p>
+        </div>
+
+        <div class="card" onclick="openModal('El chico que seguro te gusta por guapo te manda mucha felicidad desde korea')">
+          <img src="kim.jpg" alt="Kim">
+          <p>tu actor de K-Drama</p>
+        </div>
+
+        <div class="card center-card" onclick="openModal('una foto tuya chaparra')">
+          <img src="foto3.jpg" alt="Foto 3">
+          <p>tu</p>
+        </div>
+      </div>
+
+      <!-- SECCIÓN DE CUPONES INTERACTIVOS -->
+      <div class="coupons-section">
+        <h3>🎟️ Tus Cupones de Regalo</h3>
+        <p><small>¡Haz clic en "Canjear" para usarlos!</small></p>
+        
+        <div class="coupon" id="coupon1">
+          <div class="coupon-text">
+            <strong>Vale por: 1 pissa (yo pago)</strong>
+            <span>Válido cuando tengas hambre y yo tenga dinero.</span>
+          </div>
+          <button class="claim-btn" onclick="claimCoupon('coupon1', 'pobre')">Canjear</button>
+        </div>
+
+        <div class="coupon" id="coupon2">
+          <div class="coupon-text">
+            <strong>Vale por: 1 una historia de las que tanto me criticas</strong>
+            <span>valido si no te quejas.</span>
+          </div>
+          <button class="claim-btn" onclick="claimCoupon('coupon2', 'obvio va a haber un therian en ella')">Canjear</button>
+        </div>
+
+        <div class="coupon" id="coupon3">
+          <div class="coupon-text">
+            <strong>Vale por: 1 dia sin bulling</strong>
+            <span>mhhh no.</span>
+          </div>
+          <button class="claim-btn" onclick="claimCoupon('coupon3', 'ahi se notan las amistades')">Canjear</button>
+        </div>
+      </div>
+
+      <p class="footer-text">enana.</p>
+    </div>
+  </div>
+
+  <!-- MODAL / CARTITA FLOTANTE (Reemplaza los alerts feos) -->
+  <div id="modal" class="modal hidden" onclick="closeModal()">
+    <div class="modal-card">
+      <h3 id="modal-title">Título</h3>
+      <p id="modal-body">Mensaje aquí...</p>
+      <button class="close-btn">Cerrar </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
